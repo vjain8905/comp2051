@@ -12,14 +12,13 @@
             name = prompt("What is your name?");
             age = prompt("What is your age?");
             address = prompt("What is your address?");
-            
-            // Alert a greeting
-            alert("Hello " + name);
-             
-            // Output inputs to document
+                         
+            // Output greeting and inputs to the document
+            document.writeln("<h1>Welcome to COMP 2051 " + name + "</h1><hr />");
+            document.writeln("<p>I hope you enjoy your time here.<br />");
             document.writeln("<strong>Name:</strong>  " + name + "<br />");
             document.writeln("<strong>Age:</strong>  " + age + "<br />");
-            document.writeln("<strong>Address:</strong> " + address + "<br />");
+            document.writeln("<strong>Address:</strong> " + address + "</p>");
         </script>
     </body>
 </html>
