@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <script>
+            var name; // Declare variables
+            var date = new Date(); // Create date object
+            var hour = date.getHours(); // Store hour var
+            
+            // Prompt user for input date
+            name = prompt("What is your name?");
+
+            // Output a greeting based on current time
+            if(hour < 12 ) {
+                document.writeln("<h1>Good Morning, ");
+            } else {   
+                hour %= 12;
+                if(hour < 6) {
+                    document.writeln("<h1>Good Afternoon, ");
+                } else {
+                    document.writeln("<h1>Good Evening, ");
+                }
+            }
+            document.writeln(name + "</h1>");
+        </script>
+    </body>
+</html>
