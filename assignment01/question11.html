@@ -1,6 +1,19 @@
 <html>
 	<body>
+		<label for="value">Integer:</label><input type="text" disabled id="value" value="0" /><br />
+		<br />
+		<button id="buttonOne" onclick="buttonOneAction()">Set Value</button>
 		<script>
+		var value;
+		function buttonOneAction() {
+			while(true) {
+				value = prompt("Please enter an INTEGER:");
+				if (parseInt(value)) {
+					break;
+				}	
+			}
+			document.getElementById("value").value = value;
+		}
 		</script>
 	</body>
 </html>
