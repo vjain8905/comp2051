@@ -1,6 +1,37 @@
 <html>
 	<body>
+		<button onclick="addEmployee()" id="addEmployee">Add Employee</button>
+		<table id="content">
+			<thead>
+				<th>Employee Name</th>
+				<th>Payrate</th>
+				<th>Hours Worked</th>
+				<th>Wage</th>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 		<script>
+			function addEmployee() {
+				var row = document.getElementById("content").insertRow(-1);
+				var name = prompt("Please enter the employees name");
+				var curRow = row.insertCell(0);
+				curRow.innerHTML = name;
+				var pay = parseFloat(prompt("Please enter the employee's pay rate"));
+				curRow = row.insertCell(1);
+				curRow.innerHTML = pay;
+				var hours = parseFloat(prompt("Please enter the hours the employee worked"));
+				curRow = row.insertCell(2);
+				curRow.innerHTML = hours;
+				var wage = 0;
+				if(hours > 40) {
+					wage = ((hours-40)*1.5 + 40) * pay;
+				} else {
+					wage = hours * pay;
+				}
+				curRow = row.insertCell(3);
+				curRow.innerHTML = wage;
+			}
 		</script>
 	</body>
 </html>

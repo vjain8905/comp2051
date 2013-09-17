@@ -5,11 +5,21 @@
 		var x, y, z;
 		x = 10;
 		y = 5;
-		z = (x++)+y;
-		console.log(z);
+		z = y+x++;
+		console.log("x: " + x " y: " + " z: " + z);
 
 		//17b
+		if (z>10) {
+			document.writeln("<p>Count is greater than ten.</p>");
+		}
+		console.log("x: " + x " y: " + " z: " + z);
 
+		//17c
+		z -= --x;
+		console.log("x: " + x " y: " + " z: " + z);
+
+		//17d
+		
 		</script>
 	</body>
 </html>

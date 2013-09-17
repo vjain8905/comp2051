@@ -1,6 +1,19 @@
 <html>
 	<body>
 		<script>
+		var acctNum, prevBalance, totCharges, totCredits, creditLimit, newBalance;
+		acctNum = parseFloat(prompt("Please enter your Account Number"));
+		prevBalance = parseFloat(prompt("Please enter your Previous Balance"));
+		totCharges = parseFloat(prompt("Please enter your Total Charges"));
+		totCredits = parseFloat(prompt("Please enter your Total Credits"));
+		creditLimit = parseFloat(prompt("Please enter your Credit Limit"));
+
+		newBalance = prevBalance + totCharges - totCredits;
+		if(newBalance > creditLimit) {
+			alert("You're over your credit limit: $" + newBalance);
+		} else {
+			alert("Your new balance is: $" + newBalance + "\nYou have $" + (creditLimit - newBalance) + " credit left available");
+		}
 		</script>
 	</body>
 </html>
