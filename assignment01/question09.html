@@ -1,0 +1,23 @@
+<html>
+	<body>
+		<label for="username">Username:</label><input type="text" disabled id="username" /><br />
+		<label for="username">Nickname:</label><input type="text" disabled id="nickname" /><br />
+		<br />
+		<button id="buttonOne" onclick="buttonOneAction()">Set Username</button>
+		<button id="buttonTwo" onclick="buttonTwoAction()">Set Nickname</button>	
+		<script>
+		var username, nickname;
+		function buttonOneAction() {
+			username = prompt("First Name");
+			username += ".";
+			username += prompt("Last Name");
+			document.getElementById('username').value = username;
+		}
+
+		function buttonTwoAction() {
+			nickname = prompt("Under a nickname");
+			document.getElementById('nickname').value = nickname;
+		}
+		</script>
+	</body>
+</html>
