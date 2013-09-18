@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type='text/javascript'>
+
+	var loop = true;
+	var totalSales = 0;
+	var itemAmount = 0;
+	var commission = 0.10;
+	var basePay = 300;
+	
+	while(loop){
+	
+		itemAmount = parseInt(prompt("Enter the item price. (Enter a negative number to end)",""));
+		if(itemAmount >= 0){
+			totalSales += itemAmount;
+		}
+		else{
+			loop = false;
+		}
+	
+	}
+	
+	document.writeln((totalSales * commission) + basePay);
+	
+	
+	
+</script>
+</head>
+<body>
+</body>
+</html>
