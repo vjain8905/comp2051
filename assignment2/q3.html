@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+var loop = true;
+var max = 10
+var scores = Array();
+var passed = 0;
+var failed = 0;
+
+for(var i = 0;i<max;i++){
+	scores[i] = parseInt(prompt("enter result",""));
+	if(scores[i] == 1){
+		passed++;
+	}
+	else{
+		failed++;
+	}
+}
+
+document.writeln(passed + " passed " + failed + " failed");
+
+if(passed > 8 ){
+	document.writeln("raise tuition");
+}
+</script>
+</head>
+<body>
+</body>
+</html>
+

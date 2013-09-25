@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+var loop = true;
+var hours;
+var wage;
+
+
+while(loop){
+
+	hours = parseInt(prompt("Enter number of hours (-1 to quit)",""));
+
+	if(hours == -1){
+		loop = false;
+		break;
+	}
+
+	wage = parseInt(prompt("Enter wage(-1 to quit)",""));
+
+	if(wage== -1){
+		loop = false;
+		break;
+	}
+
+	if(hours <= 40){
+		document.writeln("Employee made " + (hours * wage));
+	}
+	else{
+		var extraHours = hours - 40
+		document.writeln("Employee made " + ((hours * wage) + ((extraHours * 1.5) * wage)));
+	}
+
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
