@@ -1,0 +1,26 @@
+<html>
+	<body>
+		<script>
+			var input = new Array();
+
+			var inputLength = prompt("Please enter the number if inputs");
+
+			var smallest;
+
+			for (var i=0;i<inputLength;i++) { 
+				input.push(prompt("Enter a Value"))
+				if(0 > input[i]) {
+					
+				} else if(!smallest) {
+					smallest = input[i];
+				} else if(smallest > input[i]) {
+					smallest = input[i];
+				}
+			}
+
+
+
+			document.write(smallest);
+		</script>
+	</body>
+</html>

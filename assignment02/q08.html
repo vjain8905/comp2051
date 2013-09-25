@@ -1,0 +1,21 @@
+<html>
+	<body>
+		<script>
+			var salary = 200;
+			var itemOne =  parseInt(prompt("Number of Item 1 sold"));
+
+			var itemTwo =  parseInt(prompt("Number of Item 2 sold"));
+
+			var itemThree =  parseInt(prompt("Number of Item 3 sold"));
+
+			var itemFour =  parseInt(prompt("Number of Item 4 sold"));
+
+			salary += itemFour * (0.09 * 350.89);
+			salary += itemThree * (0.09 * 99.95);
+			salary += itemTwo * (0.09 * 129.75);
+			salary += itemOne * (0.09 * 239.99);
+
+			document.writeln("Salary: " + salary);
+		</script>
+	</body>
+</html>
