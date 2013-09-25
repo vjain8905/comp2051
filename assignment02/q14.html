@@ -1,0 +1,18 @@
+<html>
+	<body>
+		<script>
+			var principle = 1000;
+			var percent = 0.05;
+			var years = 10;
+			value = principle;
+			document.writeln("<table><tr><th>Value</th></tr>");
+			for(var i = 0; i < 10; i++) {
+				value = value * (1+percent);
+				document.writeln("<tr><td>");
+				document.writeln(value);
+				document.writeln("</td></tr>");	
+			}
+			document.writeln("</table>");
+		</script>
+	</body>
+</html>

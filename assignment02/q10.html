@@ -1,7 +1,18 @@
 <html>
 	<body>
 		<script>
-			
+			var numbers = new Array();
+			var input;
+			while((input = parseInt(prompt("Input a value, -1 to exit"))) != -1) {
+				numbers.push(input);
+			}
+			var largest = numbers[0];
+			for(i = 0; i < numbers.length; i++) {
+				if (largest < numbers[i]) {
+					largest = numbers[i];
+				}
+			}
+			document.write("Largest number is: " +largest);
 		</script>
 	</body>
 </html>
