@@ -1,0 +1,28 @@
+<html>
+	<head></head>
+	<body>
+		<script>
+
+			var input = new Array();
+			while((input = parseInt(prompt("Input a value, -1 to exit"))) != -1) {
+				input.push(input);
+			}
+
+			tableMaker(input);
+
+			function tableMaker(inputArray) {
+				//Make the Table
+
+			document.writeln("<table><tr><th>Number</th><th>Squared</th></tr>");
+				for(var i = 0; i < inputArray.length; i++) {
+					document.writeln("<tr><td>");
+					document.writeln(inputArray[i]);
+					document.writeln("</td><td>");
+					document.writeln(Math.pow(inputArray[i],2));
+					document.writeln("</td></tr>");
+				}
+				document.writeln("</table");
+			}
+		</script>
+	</body>
+</html>
