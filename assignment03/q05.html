@@ -1,6 +1,27 @@
 <html>
 	<body>
+		<input type="text" id="first" placeholder="First Number" />
+		<input type="text" id="second" placeholder="Second Number" /> <br />
+		<button onclick="btnClick();" id="formSubmit">Calculate</button>
+		<br />
+		<span id="result"></span>
 		<script>
+		function isMultiple(first, second) {
+			if ((first % second) == 0) {
+				return true;
+			}
+			return false;
+		}
+
+		function btnClick() {
+			var first = document.getElementById("first").value;
+			var second = document.getElementById("second").value;
+			if(isMultiple(first, second)) {
+				document.getElementById("result").innerHTML= "Is Multiple";
+			} else {
+				document.getElementById("result").innerHTML ="Is NOT Multiple";
+			}
+		}
 		</script>
 	</body>
 </html>

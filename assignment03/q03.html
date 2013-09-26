@@ -1,6 +1,22 @@
 <html>
 	<body>
+		<input type="text" id="x1" placeholder="X1" />
+		<input type="text" id="y1" placeholder="Y1" /> <br />
+		<input type="text" id="x2" placeholder="X2" />
+		<input type="text" id="y2" placeholder="Y2" /> <br />
+		<button onclick="distance();" id="formSubmit">Calculate</button>
+		<br />
+		<span id="result"></span>
 		<script>
+			function distance() {
+				var x1, x2, y1, y2, result;
+				x1 = parseFloat(document.getElementById("x1").value);
+				x2 = parseFloat(document.getElementById("x2").value);
+				y1 = parseFloat(document.getElementById("y1").value);
+				y2 = parseFloat(document.getElementById("y2").value);
+				result = (Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2)));
+				document.getElementById("result").innerHTML = result;
+			}
 		</script>
 	</body>
 </html>
