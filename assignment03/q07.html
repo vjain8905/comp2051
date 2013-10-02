@@ -1,6 +1,28 @@
 <html>
-	<body>
-		<script>
-		</script>
-	</body>
+<head>
+<script>
+function makeSquare(side){
+
+var sideCounter = 1;
+var lineCounter = 1;
+while(sideCounter <= side){
+	while(lineCounter <= side){
+		document.write("*");
+		lineCounter++;
+	}
+	document.write("<br>");
+	lineCounter = 1;
+	sideCounter++
+	}
+
+}
+
+
+var side = parseInt(prompt("Enter number per side",""));
+makeSquare(side);
+</script>
+</head>
+<body>
+
+</body>
 </html>
