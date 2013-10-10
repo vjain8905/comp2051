@@ -1,0 +1,109 @@
+<html>
+	<body>
+		<script>
+			// I have no idea how to play craps, google results were confusing. I'm going with this guys rules
+			// http://harbormist.com/cis700_07/p2_craps/craps_jodeh.html
+
+			// Just a simple dice roller...
+			function rollDice() {
+				rollCount++;
+				var rollOne = Math.floor((Math.random()*6) + 1);
+				var rollTwo = Math.floor((Math.random()*6) + 1);
+				return (rollOne + rollTwo);
+			}
+
+
+			// The come out roll
+			function rollComeOut() {
+				var comeOut = rollDice();
+				if(comeOut == 2 || comeOut == 3 || comeOut == 12) {
+					// Loss
+					return 0;
+				} else if (comeOut == 7 || comeOut == 11) {
+					// Win
+					return 1;
+				} else {
+					// Move on
+					return comeOut;
+				}
+			}
+
+			// Every other roll
+			function rollPoint(point) {
+				var roll = rollDice();
+				if (roll == point) {
+					// Player wins
+					return 1;
+				} else if(roll == 7) {
+					// Player loses
+					return 0;
+				} else {
+					return roll;
+				}
+			}
+
+			// The main program
+			var runTimes = 1000;
+			var winCount = 0;
+			var lossCount = 0;
+			var rollCount = 0;
+			var wins = new Array(21);
+			var losses = new Array(21);
+			for(var i = 0; i < wins.length; i++) {
+				wins[i] = 0;
+			}
+			for(var i = 0; i < losses.length; i++) {
+				losses[i] = 0;
+			}
+			// Play craps
+			for(var i = 0; i < runTimes; i++) {
+				var roll = 0;
+				var result = rollComeOut();
+				// Keep playing till win/loss
+				while(result > 1){
+					roll++;
+					result = rollPoint(result);
+				}
+
+				// If you win/lose, record result
+				if(result == 0) {
+					lossCount++;
+					if(roll > 20) {
+						losses[20]++;
+					} else {
+						losses[roll]++;	
+					}
+				} else if(result == 1) {
+					winCount++;
+					if(roll > 20) {
+						wins[20]++;
+					} else {
+						wins[roll]++;	
+					}
+				}
+			}
+
+			// Write HTML stuff
+			document.writeln("<table><thead><tr><th>Roll Number</th><th>Wins</th><th>Losses</th></tr></thead><tbody>");
+			for(var i = 0; i < wins.length; i++) {
+				document.writeln("<tr>");
+				if(i == 20) {
+					document.writeln("<td>Over 20</td>");
+				} else {
+					document.writeln("<td>" + (i+1) + "</td>");
+				}
+				
+				document.writeln("<td>" + wins[i] + "</td>");
+				document.writeln("<td>" + losses[i] + "</td>");
+
+				document.writeln("</tr>");
+			}
+			document.writeln("</tbody></table>");
+
+			document.writeln("Chance of Winning: " + (winCount / runTimes * 100) + "%");
+			document.writeln("Chance of Losing: " + (lossCount / runTimes * 100) + "%");
+			document.writeln("<br />The average length of a game is: " + rollCount / runTimes +" rolls");
+			document.writeln("<br />The chance of winning decreases after round 1");
+		</script>
+	</body>
+</html>

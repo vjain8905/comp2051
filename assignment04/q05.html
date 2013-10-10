@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<script>
+		// I think this is what you mean?
+		// The order in which the values are 0'd are set as the intial value
+		var sales = 
+			[
+				[1, 2, 3, 4, 5],
+				[6, 7, 8, 9, 10],
+				[11, 12, 13, 14, 15]
+			];
+
+		var i = 0;
+		for (var row in sales) {
+			for (var col in sales[row]) {
+				// I could also set it to:
+				// sales[row][col] = i++;
+				// But I really don't understand what you're asking. Neither does google:
+				// http://www.dreamincode.net/forums/topic/122386-label-the-elements-of-3x5-2-dimensional-array/
+				sales[row][col] = 0;
+			}
+		}
+		</script>
+	</body>
+</html>

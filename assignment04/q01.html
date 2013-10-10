@@ -1,0 +1,123 @@
+<html>
+	<body>
+		<script>
+		// a
+		var f = new Array();
+		f[0] = 1;
+		f[1] = 'a';
+		f[2] = 'b';
+		f[3] = 'c';
+		f[4] = 'd';
+		f[5] = 'e';
+		f[6] = '9';
+		f[7] = '12';
+		document.writeln("7th Element: " + f[6]);
+
+		// b
+		var g = [8,8,8,8,8];
+		console.log(g);
+
+		// c
+		var c = new Array(100);
+
+		// initialize the array... I "should" combine the two arrays but I wasn't sure if you wanted me to initialize the array by doing c[n] manually, and I'm not wasting my time copy/pasting 100 times
+		for (var i = 0; i < c.length; i++) {
+			c[i] = Math.random();
+		}
+
+		var sum = 0;
+		for (var i = 0; i < c.length; i++) {
+			sum += c[i];
+		}
+		console.log(sum);
+
+		// d - let's copy a null array! Yay!
+		var a = new Array(11);
+		var b = new Array(34);
+		for (var i = 0; i > a.length; i++) {
+			b[i] = a[i];
+		}
+
+		// e
+		var bigArray = Array(99);
+		for (var i = 0; i < bigArray.length; i++) {
+			bigArray[i] = Math.random();
+		}
+
+		// Credits to stackoverflow, didn't know of the apply function
+		var largest = Math.max.apply(Math, bigArray);
+		var smallest = Math.min.apply(Math, bigArray);
+		console.log("smallest is: "+ smallest);
+		console.log("largest is: "+ largest);
+
+		// f / g
+		var t = [['a',1, 2],['b',1, 2]];	
+		console.log(t);
+
+		// h
+		console.log(t.length);
+
+		// i
+		console.log(t[0].length);
+
+		// j
+		sum = 0;
+		for (var i = 0; i < t.length; i++) {
+			sum += t[i].length;
+		}
+		console.log(sum);
+
+		// k
+		for (var i = 0; i < t.length; i++) {
+			console.log(t[i][1]);
+		}
+
+		// l
+		for (var i = 0; i < t.length; i++) {
+			console.log(t[i][2]);
+		}
+
+		// m
+		t[0][1] = 0;
+
+		// n 
+		t[0][0] = 0;
+		t[0][1] = 0;
+		t[0][2] = 0;
+		t[1][0] = 0;
+		t[1][1] = 0;
+		t[1][2] = 0;
+
+		// o
+		for (var i = 0; i < t.length; i++) {
+			for (var j = 0; j < t[i].length; j++){
+				t[i][j] = 0;
+			}
+		}
+
+		// p - couldn't figure out if I could use the .apply here on multi-dimension
+		largest = t[0][0];
+		smallest = t[0][0];
+		for (var i = 0; i < t.length; i++ ){
+			largest = Math.max(largest, Math.max.apply(Math, t[i]));
+			smallest = Math.min(smallest, Math.min.apply(Math, t[i]));
+		}
+		console.log("smallest is: "+ smallest);
+		console.log("largest is: "+ largest);
+
+		// q
+		for (var i = 0; i < t.length; i++) {
+			console.log(t[i][0]);
+		}
+
+		// r
+		sum = 0;
+		for (var i = 0; i < t.length; i++) {
+			if(t[i][3]) {
+				sum += t[i][3];
+			}
+		}
+		console.log(sum);
+		</script>
+	</body>
+</html>

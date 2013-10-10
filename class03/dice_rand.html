@@ -1,0 +1,18 @@
+<html>
+	<head></head>
+	<body>
+		<script>
+			var rolls = [0,0,0,0,0,0];
+			for(var i = 0; i < 600; i++) {
+				rolls[Math.floor((Math.random() * 6))]++;
+			}
+			console.log(rolls);
+			document.writeln("1: " + rolls[0]);
+			document.writeln("<br />2: " + rolls[1]);
+			document.writeln("<br />3: " + rolls[2]);
+			document.writeln("<br />4: " + rolls[3]);
+			document.writeln("<br />5: " + rolls[4]);
+			document.writeln("<br />6: " + rolls[5]);
+		</script>
+	</body>
+</html>

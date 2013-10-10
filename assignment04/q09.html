@@ -1,0 +1,63 @@
+<html>
+	<body>
+		<script>
+		function calculateSales(sales) {
+			for(var i = 0; i < salespeople.length; i++) {
+				for(var j = 0; j < sales[i].length; j++) {
+					salespeople[i][j] += sales[i][j];
+				}
+			}
+		}
+
+		var salespeople = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+
+		// In my world, a month has TWO days!
+		// Day one sales
+		var dayOne = [[0,1,2,3,4],[1,2,3,4,5],[2,3,4,5,6],[3,4,5,6,7],[4,5,6,7,8]];
+
+		// Day two sales
+		var dayTwo = [[0,1,2,3,4],[1,2,3,4,5],[2,3,4,5,6],[3,4,5,6,7],[4,5,6,7,8]];
+
+		calculateSales(dayOne);
+		calculateSales(dayTwo);
+		
+		var productTotals = [0,0,0,0,0];
+		var totalSales = 0;
+
+		document.writeln("<table><thead><tr>");
+		document.writeln("<th>SalesPerson#</th>");
+		document.writeln("<th>Product 1</th>");
+		document.writeln("<th>Product 2</th>");
+		document.writeln("<th>Product 3</th>");
+		document.writeln("<th>Product 4</th>");
+		document.writeln("<th>Product 5</th>");
+		document.writeln("<th>Sales Total</th></tr></thead><tbody>");
+
+
+		for(var i = 0; i < salespeople.length; i++) {
+			document.writeln("<tr><td>"+(i+1)+"</td>");
+			var salesTotal = 0;
+			for(var j = 0; j < salespeople[i].length; j++) {
+					salesTotal += salespeople[i][j];
+					document.writeln("<td>");
+					document.writeln(salespeople[i][j]);
+					document.writeln("</td>");
+					productTotals[j] += salespeople[i][j];
+				}
+				totalSales += salesTotal;
+			document.writeln("<td>"+salesTotal+"</td>");
+			document.writeln("</tr>");
+		}
+		document.writeln("<tr><td>Totals</td>");
+		for(var i = 0; i < productTotals.length; i++) {
+			document.writeln("<td>");
+			document.writeln(productTotals[i]);
+			document.writeln("</td>");
+		}
+		document.writeln("<td>");
+		document.writeln(totalSales);
+		document.writeln("</td>");
+		document.writeln("</tr></tbody></table>");
+		</script>
+	</body>
+</html>
