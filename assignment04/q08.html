@@ -1,0 +1,127 @@
+<html>
+<head>
+<script type='text/javascript'>
+var seats = Array(0,0,0,0,0,0,0,0,0,0);
+
+
+var loop = true;
+var choice;
+
+while(loop){
+
+	if(full(seats)){
+	
+		document.write("planes full");
+	
+	}
+	choice = parseInt(prompt("first class - 1 or economy - 2 ",""));
+	
+	if(choice == 1){
+	
+		var found = economy(seats);
+		
+		if(found == false){
+		
+		var answer = parseInt(prompt("economy is full do you want to try first class? 1 - yes 2 - no",""));
+			if(answer == 1){
+				firstclass(seats);
+				}else{
+					break;
+					}
+		
+		}
+	
+	}
+	else if(choice == 2){
+	
+		var found = firstclass(seats);
+		
+		if(found == false){
+		
+		var answer = parseInt(prompt("first class is full do you want to try economy? 1 - yes 2 - no",""));
+			if(answer == 1){
+				economy(seats);
+				}else{
+					break;
+					}
+		
+		}
+	
+	}
+	
+	
+
+}
+
+function economy(seats){
+
+	var found = false;
+	var seat;
+		for(var i = 0;i<5;i++){
+		
+			if(seats[i] == 0){
+			seat = i;
+				found = true
+				seats[i] = 1;
+				break;
+			}
+		
+		}
+		
+		if(found){
+		
+			document.write("board pass seat " + (seat + 1));
+		
+		}
+		
+		return found;
+
+
+
+}
+
+function full(seats){
+
+	for(var i = 0;i<seats.length;i++){
+	
+		if(seats[i] == 0){
+			return false;
+		}
+		
+		return true;
+	
+	}
+
+}
+
+function firstclass(seats){
+
+	var found = false;
+	var seat;
+		for(var i = 5;i<10;i++){
+		
+			if(seats[i] == 0){
+			seat = i;
+				found = true
+				seats[i] = 1;
+				break;
+			}
+		
+		}
+		
+		if(found){
+		
+			document.write("board pass seat " + (seat + 1));
+		
+		}
+		
+		return found;
+
+
+
+}
+</script>
+</head>
+<body>
+</body>
+</html>

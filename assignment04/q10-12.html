@@ -1,0 +1,76 @@
+<html>
+<head>
+<script type='text/javascript'>
+var numbers = new Array();
+
+for(var i = 2;i<1000;i++){
+
+
+	numbers[i] = 1;
+
+}
+
+subscript3(numbers);
+displayArray(numbers);
+document.write("<br>");
+
+
+function subscript1(array){
+
+
+for(var i = 2;i<1000;i++){
+
+
+	numbers[i] = 0;
+
+}
+
+
+}
+
+function subscript2(array){
+
+
+for(var i = 2;i<1000;i++){
+
+
+	if(i % 2 == 0){
+		numbers[i] = 0;
+	}
+
+}
+
+
+}
+
+function subscript3(array){
+
+
+for(var i = 2;i<1000;i++){
+
+	if(i % 3 == 0){
+		numbers[i] = 0;
+	}
+
+}
+
+
+}
+
+function displayArray(array){
+
+
+for(var i = 2;i<1000;i++){
+
+
+	document.write(array[i]);
+
+}
+
+
+}
+</script>
+</head>
+<body>
+</body>
+</html>
