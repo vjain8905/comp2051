@@ -1,0 +1,95 @@
+<html>
+	<body>
+		<script>
+		function ajaxRequest(){
+			 var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"] //activeX versions to check for in IE
+			 if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+			  for (var i=0; i<activexmodes.length; i++){
+			   try{
+			    return new ActiveXObject(activexmodes[i])
+			   }
+			   catch(e){
+			    //suppress error
+			   }
+			  }
+			 }
+			 else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+			  return new XMLHttpRequest()
+			 else
+			  return false
+			}
+
+			//Sample call:
+			var myajaxrequest=new ajaxRequest();
+			mypostrequest.onreadystatechange=function(){
+			 if (mypostrequest.readyState==4){
+			  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+			   document.getElementById("result").innerHTML=mypostrequest.responseText
+			  }
+			  else{
+			   alert("An error has occured making the request")
+			  }
+			 }
+			}
+			// Going to be honest here, I have no idea how to do a radio/checkbox val anymore. Only via jQuery :(
+			// $('#theForm').serialize() is what I've been using for years.
+			var nameVal=encodeURIComponent(document.getElementById("name").value)
+			var commentVal=encodeURIComponent(document.getElementById("comments").value)
+			var emailVal=encodeURIComponent(document.getElementById("email").value)
+			var radioVal=encodeURIComponent(document.getElementById("liked").value)
+			var checkboxVal=encodeURIComponent(document.getElementById("source").value)
+			var selectVal=encodeURIComponent(document.getElementById("select").value)
+			var parameters="name="+nameVal
+					+"&comment="+commentVal
+					+"&email="+emailVal
+					+"&radio="+radioVal
+					+"&checkboxVal="+checkboxVal
+					+"&selectVal="+selectVal
+			mypostrequest.open("POST", "THEFORMTHATTAKESINPUT.php", true)
+			mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			mypostrequest.send(parameters)
+		</script>
+	</body>
+	<form id="form" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" placeholder "John Smith"/>
+		<br /><br />
+		<label for="comments">Comments:</label><br />
+		<textarea id="comments" name="comments"></textarea>
+		<br /><br />
+		<label for="name">E-mail Address:</label>
+		<input type="text" id="email" name="email" placeholder "silly@assignment.io"/>
+		<br /><br />
+		<label for="liked"><strong>Things you Liked:</strong></label><br />
+		<input id="liked" type="radio" name="liked" value="design">Site Design&nbsp;
+		<input id="liked" type="radio" name="liked" value="links">Links&nbsp;
+		<input id="liked" type="radio" name="liked" value="ease">Ease of Use&nbsp;	
+		<input id="liked" type="radio" name="liked" value="images">Images&nbsp;	
+		<input id="liked" type="radio" name="liked" value="source">Source Code&nbsp;
+		<br /><br />
+		<label for="source"><strong>How did you get to our site?:</strong></label><br />
+		<input id="source" type="checkbox" name="liked" value="google">Search Engine&nbsp;
+		<input id="source" type="checkbox" name="liked" value="link">Another Site&nbsp;
+		<input id="source" type="checkbox" name="liked" value="deitel">Deitel&nbsp;	
+		<input id="source" type="checkbox" name="liked" value="book">Reference from Book&nbsp;	
+		<input id="source" type="checkbox" name="liked" value="other">Other&nbsp;
+		<br /><br />
+		<label for="select">Rate our Site</label>
+		<select id="select" id="select">
+			<option value="amazing">Amazing</option>
+			<option value="10">10</option>
+			<option value="9">9</option>
+			<option value="8">8</option>
+			<option value="7">7</option>
+			<option value="6">6</option>
+			<option value="5">5</option>
+			<option value="4">4</option>
+			<option value="3">3</option>
+			<option value="2">2</option>
+			<option value="1">1</option>
+			<option value="terrabad">Terrabad</option>
+		</select>
+		<br />	
+		<input type="reset" value="Reset" /><input type="submit" value="Submit"/> 
+	</form>
+</html>
